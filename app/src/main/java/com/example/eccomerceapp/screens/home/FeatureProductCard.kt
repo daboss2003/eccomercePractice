@@ -1,6 +1,7 @@
 package com.example.eccomerceapp.screens.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -39,7 +41,7 @@ fun FeatureProductCard(product: Product, onPress: () -> Unit){
     ) {
         Box(){
             DiscountBadge(
-                discountPercent = (product.price / 7.0).toInt(),
+                discountPercent = (product.price / (product.price * 0.4)).toInt(),
                 modifier = Modifier
                     .align(Alignment.TopStart)
                     .padding(8.dp)
@@ -72,11 +74,11 @@ fun FeatureProductCard(product: Product, onPress: () -> Unit){
                     )
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
+                    Image(
                        painter = painterResource(R.drawable.star),
                         contentDescription = "Rating",
-                        tint = PrimaryColor,
-                        modifier = Modifier.size(16.dp)
+                        modifier = Modifier.size(16.dp).background(Color.Transparent)
+
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(product.id, style = MaterialTheme.typography.bodySmall)

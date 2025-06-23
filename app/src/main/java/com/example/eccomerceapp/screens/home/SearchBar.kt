@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -49,9 +48,9 @@ fun MySearchBar(
                 value = query,
                 onValueChange = onQueryChange,
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxSize(),
                 placeholder = {
-                    Text("Search product", color = Color.Gray, fontSize = 16.sp)
+                    Text("Search product", color = Color.Gray, fontSize = 14.sp)
                 },
                 keyboardOptions = KeyboardOptions(
                     imeAction = ImeAction.Search
