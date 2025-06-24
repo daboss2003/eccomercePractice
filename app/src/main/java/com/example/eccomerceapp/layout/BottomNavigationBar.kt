@@ -1,4 +1,4 @@
-package com.example.eccomerceapp.screens.home
+package com.example.eccomerceapp.layout
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
@@ -43,7 +43,7 @@ fun BottomNavigationBar(navController: NavController){
         BottomNavigationItem(
             title = "Wishlist",
             icon = Icons.Default.Favorite,
-            route = "Cart",
+            route = "Wishlist",
             badgeCount = 5
         ),
         BottomNavigationItem(
