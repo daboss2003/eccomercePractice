@@ -43,7 +43,7 @@ fun HomeScreen(){
 
             SectionTitle("Categories", "See All", onActionPressed = {})
             val categories: List<Category> =  listOf(
-                Category(1, "Electronics", "https://cdn-icons-png.flaticon.com/512/1555/155540"),
+                Category(1, "Electronics", "https://i.pinimgproxy.com/?url=aHR0cHM6Ly9jZG4taWNvbnMtcG5nLmZsYXRpY29uLmNvbS8yNTYvOTAwLzkwMDYxOC5wbmc=&ts=1750759672&sig=fb558197091fa1462e00c7adbb1fdd3407f23ecee6a6e275a79367cae7d2b695"),
                 Category(2, "Clothing", "https://cdn-icons-png.flaticon.com/512/2935/2935183.png"),
             )
             val selectedCategory = remember { mutableIntStateOf(1) }
