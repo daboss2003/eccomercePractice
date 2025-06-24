@@ -31,7 +31,7 @@ fun CategoriesScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)){
-            SetStatusBarColorWithAccompanist(false)
+            SetStatusBarColorWithAccompanist(true)
             if(categories.isEmpty()){
                 Box(modifier = Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.Center){
                     Text("No Categories found!", style = MaterialTheme.typography.bodyLarge)
@@ -45,10 +45,10 @@ fun CategoriesScreen(navController: NavController){
                 )
 
                 LazyVerticalGrid(
-                    columns = GridCells.Fixed(3),
+                    columns = GridCells.Fixed(2),
                     contentPadding = PaddingValues(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp)
                 ) {
                     itemsIndexed(categories){ _, category ->

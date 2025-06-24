@@ -1,6 +1,7 @@
 package com.example.eccomerceapp.screens.cart
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -34,15 +35,16 @@ fun CartScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            SetStatusBarColorWithAccompanist(false)
+            SetStatusBarColorWithAccompanist(true)
 
             Text(
                 "Your Cart",
                 style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp)
             )
+            Spacer(modifier = Modifier.height(16.dp))
             if(cartItems.isEmpty()){
-                Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+                Column(modifier = Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("Your cart is empty", style = MaterialTheme.typography.bodyLarge)
                     Spacer(modifier = Modifier.height(16.dp))
                     Button(onClick = {}, ) {
@@ -51,7 +53,7 @@ fun CartScreen(navController: NavController){
                 }
             }
             else{
-                LazyColumn(modifier = Modifier.weight(1f)){
+                LazyColumn(modifier = Modifier.weight(1f).padding(horizontal = 16.dp)){
                     itemsIndexed(cartItems){_, cartItem ->
                         CartItemCard(cartItem, onRemove = {})
                     }
@@ -66,8 +68,10 @@ fun CartScreen(navController: NavController){
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(50.dp)) {
-                    Text("Checkout")
+                Box(modifier = Modifier.fillMaxWidth().padding(16.dp), contentAlignment = Alignment.Center){
+                    Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(50.dp)) {
+                        Text("Checkout")
+                    }
                 }
             }
         }

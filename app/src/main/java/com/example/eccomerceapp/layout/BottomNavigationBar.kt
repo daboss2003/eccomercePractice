@@ -83,7 +83,7 @@ fun BottomNavigationBar(navController: NavController){
                         )
                     }
                 },
-                selected = currentRoute.toString() == item.route,
+                selected = currentRoute?.route == item.route,
                 onClick = { navController.navigate(item.route) },
                 enabled = true,
                 label = {Text(item.title, style = MaterialTheme.typography.labelSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)},

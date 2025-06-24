@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -35,7 +36,7 @@ fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding), horizontalAlignment = Alignment.CenterHorizontally) {
-            SetStatusBarColorWithAccompanist(false)
+            SetStatusBarColorWithAccompanist(true)
             Spacer(modifier = Modifier.height(32.dp))
             Box(modifier = Modifier.size(120.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center){
                 Icon(Icons.Default.Person, tint = MaterialTheme.colorScheme.primary, contentDescription = "Profile Picture", modifier = Modifier.size(80.dp))
@@ -49,17 +50,17 @@ fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){
 
             Text(currentUser.email, style = MaterialTheme.typography.bodyMedium)
 
-            Spacer(modifier = Modifier.fillMaxWidth())
-
-            Button(
-                onClick = onSignOut,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-                    .fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.error,
-                    contentColor = MaterialTheme.colorScheme.onErrorContainer)
-            ) {
-                Text("Sign Out", modifier = Modifier.padding(vertical = 4.dp))
+            Box(modifier = Modifier.padding(16.dp).fillMaxSize(), contentAlignment = Alignment.BottomEnd){
+                Button(
+                    onClick = onSignOut,
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error,
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer)
+                ) {
+                    Text("Sign Out", modifier = Modifier.padding(vertical = 4.dp))
+                }
             }
         }
     }
