@@ -65,7 +65,7 @@ fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCar
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            SectionTitle("Featured", "See All", onActionPressed = {navController.navigate(Screens.Product.route)})
+            SectionTitle("Featured", "See All", onActionPressed = {navController.navigate(Screens.ProductList.route)})
             val productList: List<Product> = listOf(
                 Product("1", "Smartphone",  999.99,  "https://image.pngaaa.com/404/1144404-middle.png" ),
                 Product("2", "Laptop", 1499.99, imageUrl = "https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/05/5140613/1.jpg?0503"),

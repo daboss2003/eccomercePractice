@@ -21,6 +21,7 @@ import androidx.navigation.NavController
 import com.example.eccomerceapp.model.Category
 import com.example.eccomerceapp.layout.BottomNavigationBar
 import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
+import com.example.eccomerceapp.screens.navigation.Screens
 
 @Composable
 fun CategoriesScreen(navController: NavController){
@@ -52,7 +53,7 @@ fun CategoriesScreen(navController: NavController){
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp)
                 ) {
                     itemsIndexed(categories){ _, category ->
-                        CategoryItem(category, onCategorySelected = {})
+                        CategoryItem(category, onCategorySelected = {navController.navigate(Screens.ProductList.createRoute(category.id))})
                     }
                 }
             }

@@ -13,19 +13,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.eccomerceapp.layout.BottomNavigationBar
 import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 import com.example.eccomerceapp.model.Product
 import com.example.eccomerceapp.screens.navigation.Screens
 
 @Composable
-fun ProfileScreen(navController: NavController, categoryId: Int) {
+fun ProductListScreen(navController: NavController, categoryId: String) {
     val products: List<Product> = listOf(
         Product("1", "Smartphone",  999.99,  "https://image.pngaaa.com/404/1144404-middle.png" ),
         Product("2", "TV", 99.99, "https://media.istockphoto.com/id/1395191574/photo/black-led-tv-television-screen-blank-isolated.webp?s=1024x1024&w=is&k=20&c=iY0K5s0SnVIeL02PRNHtFG-uB6dRAd_Qo3rUvvK6p_g=")
     )
 
-    Scaffold(bottomBar = { BottomNavigationBar(navController) })  {
+    Scaffold()  {
         Column(modifier = Modifier.padding(it).fillMaxSize()) {
             SetStatusBarColorWithAccompanist()
             Text(
