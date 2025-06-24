@@ -18,16 +18,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.eccomerceapp.model.Category
 import com.example.eccomerceapp.model.Product
 import com.example.eccomerceapp.screens.SetStatusBarColorWithAccompanist
 
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCartPressed: () -> Unit){
     Scaffold(
-        topBar = {MyTopAppBar()},
-        bottomBar = {BottomNavigationBar()}
+        topBar = {MyTopAppBar(onProfilePressed = onProfilePressed, onCartPressed = onCartPressed)},
+        bottomBar = {BottomNavigationBar(navController)}
     ) { innerPadding ->
         SetStatusBarColorWithAccompanist()
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {

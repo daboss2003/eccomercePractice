@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTopAppBar(){
+fun MyTopAppBar(onProfilePressed: () -> Unit, onCartPressed: () -> Unit){
     TopAppBar(
         title = {
             Text(
@@ -31,14 +31,14 @@ fun MyTopAppBar(){
             titleContentColor = Color.White
         ),
         actions = {
-            IconButton(onClick = {}) {
+            IconButton(onClick = onCartPressed) {
                 Icon(
                     imageVector = Icons.Default.ShoppingCart,
                     contentDescription = "Cart",
                     tint = Color.White
                 )
             }
-            IconButton(onClick = {}) {
+            IconButton(onClick = onProfilePressed) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
                     contentDescription = "Profile",

@@ -11,7 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.eccomerceapp.screens.cart.CartScreen
 import com.example.eccomerceapp.screens.home.HomeScreen
+import com.example.eccomerceapp.screens.profile.ProfileScreen
 import com.example.eccomerceapp.ui.theme.EccomerceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,8 +24,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            EccomerceAppTheme {
-                HomeScreen()
+            val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = "Home"){
+                composable("Home"){
+                    HomeScreen(
+                        navController = navController,
+                        onProfilePressed = {navController.navigate("Profile")},
+                        onCartPressed = { navController.navigate("Cart")}
+                    )
+                }
+
+                composable("Cart"){
+                    CartScreen(navController = navController)
+                }
+
+                composable("Profile"){
+                    ProfileScreen(navController = navController, onSignOut = {})
+                }
             }
         }
     }
