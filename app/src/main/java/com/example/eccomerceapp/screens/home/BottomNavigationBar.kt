@@ -24,10 +24,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun BottomNavigationBar(){
-    var currentRoute = ""
+fun BottomNavigationBar(navController: NavController){
+    val currentRoute = navController.currentDestination
     val items = listOf(
         BottomNavigationItem(
             title = "Home",
@@ -82,8 +83,8 @@ fun BottomNavigationBar(){
                         )
                     }
                 },
-                selected = currentRoute == item.route,
-                onClick = {  },
+                selected = currentRoute.toString() == item.route,
+                onClick = { navController.navigate(item.route) },
                 enabled = true,
                 label = {Text(item.title, style = MaterialTheme.typography.labelSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)},
                 alwaysShowLabel = true,
