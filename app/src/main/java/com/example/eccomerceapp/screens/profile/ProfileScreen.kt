@@ -36,7 +36,7 @@ fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding), horizontalAlignment = Alignment.CenterHorizontally) {
-            SetStatusBarColorWithAccompanist(true)
+            SetStatusBarColorWithAccompanist()
             Spacer(modifier = Modifier.height(32.dp))
             Box(modifier = Modifier.size(120.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center){
                 Icon(Icons.Default.Person, tint = MaterialTheme.colorScheme.primary, contentDescription = "Profile Picture", modifier = Modifier.size(80.dp))

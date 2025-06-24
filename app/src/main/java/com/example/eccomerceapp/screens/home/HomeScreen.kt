@@ -23,6 +23,7 @@ import com.example.eccomerceapp.layout.BottomNavigationBar
 import com.example.eccomerceapp.model.Category
 import com.example.eccomerceapp.model.Product
 import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
+import com.example.eccomerceapp.screens.navigation.Screens
 
 
 @Composable
@@ -43,7 +44,7 @@ fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCar
                 modifier = Modifier.fillMaxWidth().padding(16.dp)
             )
 
-            SectionTitle("Categories", "See All", onActionPressed = {navController.navigate("Categories")})
+            SectionTitle("Categories", "See All", onActionPressed = {navController.navigate(Screens.Categories.route)})
             val categories: List<Category> =  listOf(
                 Category(1, "Electronics", "https://i.pinimgproxy.com/?url=aHR0cHM6Ly9jZG4taWNvbnMtcG5nLmZsYXRpY29uLmNvbS8yNTYvOTAwLzkwMDYxOC5wbmc=&ts=1750759672&sig=fb558197091fa1462e00c7adbb1fdd3407f23ecee6a6e275a79367cae7d2b695"),
                 Category(2, "Clothing", "https://cdn-icons-png.flaticon.com/512/2935/2935183.png"),
@@ -64,7 +65,7 @@ fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCar
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            SectionTitle("Featured", "See All", onActionPressed = {navController.navigate("Wishlist")})
+            SectionTitle("Featured", "See All", onActionPressed = {navController.navigate(Screens.Product.route)})
             val productList: List<Product> = listOf(
                 Product("1", "Smartphone",  999.99,  "https://image.pngaaa.com/404/1144404-middle.png" ),
                 Product("2", "Laptop", 1499.99, imageUrl = "https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/05/5140613/1.jpg?0503"),

@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun SetStatusBarColorWithAccompanist(isDarkIcons: Boolean) {
+fun SetStatusBarColorWithAccompanist(isDarkIcons: Boolean = true) {
     val systemUiController = rememberSystemUiController()
 
     SideEffect {

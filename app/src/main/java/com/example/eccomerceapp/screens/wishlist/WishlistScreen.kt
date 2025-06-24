@@ -17,7 +17,7 @@ import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 fun WishlistScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         Column(modifier = Modifier.padding(it), verticalArrangement = Arrangement.Center){
-            SetStatusBarColorWithAccompanist(true)
+            SetStatusBarColorWithAccompanist()
             Text("Wishlist", modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp))
         }
     }

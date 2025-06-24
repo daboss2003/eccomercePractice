@@ -31,7 +31,7 @@ fun CategoriesScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)){
-            SetStatusBarColorWithAccompanist(true)
+            SetStatusBarColorWithAccompanist()
             if(categories.isEmpty()){
                 Box(modifier = Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.Center){
                     Text("No Categories found!", style = MaterialTheme.typography.bodyLarge)

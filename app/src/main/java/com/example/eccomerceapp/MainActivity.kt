@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.eccomerceapp.screens.cart.CartScreen
 import com.example.eccomerceapp.screens.categories.CategoriesScreen
 import com.example.eccomerceapp.screens.home.HomeScreen
+import com.example.eccomerceapp.screens.navigation.Screens
 import com.example.eccomerceapp.screens.profile.ProfileScreen
 import com.example.eccomerceapp.screens.wishlist.WishlistScreen
 import com.example.eccomerceapp.ui.theme.EccomerceAppTheme
@@ -27,31 +28,36 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "Home"){
-                composable("Home"){
+            NavHost(navController = navController, startDestination = Screens.Home.route){
+                composable(Screens.Home.route){
                     HomeScreen(
                         navController = navController,
-                        onProfilePressed = {navController.navigate("Profile")},
-                        onCartPressed = { navController.navigate("Cart")}
+                        onProfilePressed = {navController.navigate(Screens.Profile.route)},
+                        onCartPressed = { navController.navigate(Screens.Cart.route)}
                     )
                 }
 
-                composable("Cart"){
+                composable(Screens.Cart.route){
                     CartScreen(navController = navController)
                 }
 
-                composable("Categories"){
+                composable(Screens.Categories.route){
                     CategoriesScreen(navController = navController)
                 }
-                composable("Wishlist"){
+                composable(Screens.Wishlist.route){
                     WishlistScreen(navController = navController)
                 }
 
 
 
-                composable("Profile"){
+                composable(Screens.Profile.route){
                     ProfileScreen(navController = navController, onSignOut = {})
                 }
+
+                composable(Screens.Product.route){
+                    ProfileScreen(navController = navController, onSignOut = {})
+                }
+
             }
         }
     }

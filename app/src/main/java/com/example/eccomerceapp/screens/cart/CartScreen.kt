@@ -35,7 +35,7 @@ fun CartScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            SetStatusBarColorWithAccompanist(true)
+            SetStatusBarColorWithAccompanist()
 
             Text(
                 "Your Cart",
