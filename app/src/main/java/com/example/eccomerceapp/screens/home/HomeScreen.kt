@@ -31,7 +31,7 @@ fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCar
         topBar = {MyTopAppBar(onProfilePressed = onProfilePressed, onCartPressed = onCartPressed)},
         bottomBar = { BottomNavigationBar(navController) }
     ) { innerPadding ->
-        SetStatusBarColorWithAccompanist()
+        SetStatusBarColorWithAccompanist(false)
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             val searchQuery = remember { mutableStateOf("") }
             val focusManger = LocalFocusManager.current

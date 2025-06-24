@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.eccomerceapp.model.Category
 import com.example.eccomerceapp.layout.BottomNavigationBar
+import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 
 @Composable
 fun CategoriesScreen(navController: NavController){
@@ -30,6 +31,7 @@ fun CategoriesScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)){
+            SetStatusBarColorWithAccompanist(false)
             if(categories.isEmpty()){
                 Box(modifier = Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.Center){
                     Text("No Categories found!", style = MaterialTheme.typography.bodyLarge)

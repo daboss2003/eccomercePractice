@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.eccomerceapp.layout.BottomNavigationBar
+import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 
 @Composable
 fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){
@@ -34,6 +35,7 @@ fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding), horizontalAlignment = Alignment.CenterHorizontally) {
+            SetStatusBarColorWithAccompanist(false)
             Spacer(modifier = Modifier.height(32.dp))
             Box(modifier = Modifier.size(120.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center){
                 Icon(Icons.Default.Person, tint = MaterialTheme.colorScheme.primary, contentDescription = "Profile Picture", modifier = Modifier.size(80.dp))

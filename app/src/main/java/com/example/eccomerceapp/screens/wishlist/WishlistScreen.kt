@@ -11,11 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.eccomerceapp.layout.BottomNavigationBar
+import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 
 @Composable
 fun WishlistScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         Column(modifier = Modifier.padding(it), verticalArrangement = Arrangement.Center){
+            SetStatusBarColorWithAccompanist(false)
             Text("Wishlist", modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp))
         }
     }

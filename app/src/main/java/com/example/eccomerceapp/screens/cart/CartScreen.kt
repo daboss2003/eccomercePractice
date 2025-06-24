@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.eccomerceapp.model.Product
 import com.example.eccomerceapp.layout.BottomNavigationBar
+import com.example.eccomerceapp.layout.SetStatusBarColorWithAccompanist
 
 @Composable
 fun CartScreen(navController: NavController){
@@ -33,6 +34,8 @@ fun CartScreen(navController: NavController){
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) {
         innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+            SetStatusBarColorWithAccompanist(false)
+
             Text(
                 "Your Cart",
                 style = MaterialTheme.typography.headlineMedium,
