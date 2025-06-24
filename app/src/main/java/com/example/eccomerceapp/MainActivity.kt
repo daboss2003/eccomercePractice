@@ -15,8 +15,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.eccomerceapp.screens.cart.CartScreen
+import com.example.eccomerceapp.screens.categories.CategoriesScreen
 import com.example.eccomerceapp.screens.home.HomeScreen
 import com.example.eccomerceapp.screens.profile.ProfileScreen
+import com.example.eccomerceapp.screens.wishlist.WishlistScreen
 import com.example.eccomerceapp.ui.theme.EccomerceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,6 +39,15 @@ class MainActivity : ComponentActivity() {
                 composable("Cart"){
                     CartScreen(navController = navController)
                 }
+
+                composable("Categories"){
+                    CategoriesScreen(navController = navController)
+                }
+                composable("Wishlist"){
+                    WishlistScreen(navController = navController)
+                }
+
+
 
                 composable("Profile"){
                     ProfileScreen(navController = navController, onSignOut = {})

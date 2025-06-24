@@ -25,7 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.eccomerceapp.screens.home.BottomNavigationBar
+import com.example.eccomerceapp.layout.BottomNavigationBar
 
 @Composable
 fun ProfileScreen(onSignOut: () -> Unit, navController: NavController){

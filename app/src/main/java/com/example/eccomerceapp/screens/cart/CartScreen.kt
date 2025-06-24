@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -19,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.eccomerceapp.model.Product
-import com.example.eccomerceapp.screens.home.BottomNavigationBar
+import com.example.eccomerceapp.layout.BottomNavigationBar
 
 @Composable
 fun CartScreen(navController: NavController){
@@ -48,8 +49,8 @@ fun CartScreen(navController: NavController){
             }
             else{
                 LazyColumn(modifier = Modifier.weight(1f)){
-                    items(cartItems.size){
-                        CartItemCard(cartItems[it], onRemove = {})
+                    itemsIndexed(cartItems){_, cartItem ->
+                        CartItemCard(cartItem, onRemove = {})
                     }
                 }
 

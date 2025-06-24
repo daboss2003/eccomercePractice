@@ -1,4 +1,4 @@
-package com.example.eccomerceapp.screens
+package com.example.eccomerceapp.layout
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
