@@ -36,40 +36,44 @@ fun LoginScreen(onNavigateToSignUp: () -> Unit, onLoginSuccess: () -> Unit){
             innerPadding ->
         Column(
             modifier = Modifier.fillMaxSize().padding(innerPadding),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
         ){
-            Text("Create Account", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(bottom = 32.dp))
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Email") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Email),
-                singleLine = true
-            )
-            OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
-                label = { Text("Password") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done, keyboardType = KeyboardType.Password),
-                visualTransformation = PasswordVisualTransformation(),
-                singleLine = true
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(
-                onClick = {onLoginSuccess()},
-                modifier = Modifier.fillMaxWidth().height(50.dp),
-                enabled =  email.isNotBlank() && password.isNotBlank()
+            Column(
+                modifier = Modifier.fillMaxSize().padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ){
-                Text("Login", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(vertical = 8.dp))
-            }
+                Text("Login", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(vertical = 32.dp))
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text("Email") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Email),
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    label = { Text("Password") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done, keyboardType = KeyboardType.Password),
+                    visualTransformation = PasswordVisualTransformation(),
+                    singleLine = true
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(
+                    onClick = {onLoginSuccess()},
+                    modifier = Modifier.fillMaxWidth().height(50.dp),
+                    enabled =  email.isNotBlank() && password.isNotBlank()
+                ){
+                    Text("Login", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(vertical = 8.dp))
+                }
 
-            Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = onNavigateToSignUp) {
-                Text("Don't have an account? Sign Up", style = MaterialTheme.typography.bodyMedium)
+                TextButton(onClick = onNavigateToSignUp) {
+                    Text("Don't have an account? Sign Up", style = MaterialTheme.typography.bodyMedium)
+                }
             }
         }
     }

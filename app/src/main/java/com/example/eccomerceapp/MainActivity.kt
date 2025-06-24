@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.eccomerceapp.screens.auth.LoginScreen
+import com.example.eccomerceapp.screens.auth.SignUpScreen
 import com.example.eccomerceapp.screens.cart.CartScreen
 import com.example.eccomerceapp.screens.categories.CategoriesScreen
 import com.example.eccomerceapp.screens.home.HomeScreen
@@ -46,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
 
                 composable(Screens.Profile.route){
-                    ProfileScreen(navController = navController, onSignOut = {})
+                    ProfileScreen(navController = navController, onSignOut = {navController.navigate(Screens.Login.route)})
                 }
 
                 composable(Screens.ProductList.route){
@@ -61,6 +63,14 @@ class MainActivity : ComponentActivity() {
                     if(productId != null){
                         ProductDetailsScreen(productId = productId, navController = navController)
                     }
+                }
+
+                composable(Screens.Login.route){
+                    LoginScreen(onNavigateToSignUp = {navController.navigate(Screens.Signup.route)}, onLoginSuccess = {navController.navigate(Screens.Home.route)})
+                }
+
+                composable(Screens.Signup.route){
+                    SignUpScreen(onNavigateToLogin = {navController.navigate(Screens.Login.route)}, onSignUpSuccess = {navController.navigate(Screens.Home.route)})
                 }
 
             }

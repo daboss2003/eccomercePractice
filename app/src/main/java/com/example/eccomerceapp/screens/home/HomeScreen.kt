@@ -77,7 +77,9 @@ fun HomeScreen(navController: NavController, onProfilePressed: () -> Unit, onCar
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(productList){
-                    FeatureProductCard(it) { }
+                    FeatureProductCard(it) {
+                        navController.navigate(Screens.ProductDetails.createRoute(it.id))
+                    }
                 }
             }
         }

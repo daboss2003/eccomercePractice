@@ -33,7 +33,7 @@ fun SignUpScreen(onSignUpSuccess: () -> Unit, onNavigateToLogin: () -> Unit) {
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
-    val authState by remember { mutableStateOf(true) }
+    val authState by remember { mutableStateOf(false) }
     var passwordError by remember { mutableStateOf<String?>(null) }
 
     if(authState){
@@ -43,74 +43,78 @@ fun SignUpScreen(onSignUpSuccess: () -> Unit, onNavigateToLogin: () -> Unit) {
         innerPadding ->
         Column(
             modifier = Modifier.fillMaxSize().padding(innerPadding),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
         ){
-            Text("Create Account", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(bottom = 32.dp))
-            OutlinedTextField(
-                value = name,
-                onValueChange = { name = it },
-                label = { Text("Name") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Text),
-                singleLine = true
-            )
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text("Email") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Email),
-                singleLine = true
-            )
-            OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
-                label = { Text("Password") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Password),
-                visualTransformation = PasswordVisualTransformation(),
-                singleLine = true
-            )
-            OutlinedTextField(
-                value = confirmPassword,
-                onValueChange = { confirmPassword = it },
-                label = { Text("Confirm Password") },
-                modifier = Modifier.padding(vertical = 8.dp).fillMaxSize(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done, keyboardType = KeyboardType.Password),
-                singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                isError = passwordError !== null,
-                supportingText = {
-                    if (passwordError != null) {
-                        Text(passwordError!!, color = MaterialTheme.colorScheme.error)
-                    }
-
-                }
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(
-                onClick = {
-                    if(password == confirmPassword){
-                        onSignUpSuccess()
-                    }
-                    else if(password.length < 6){
-                        passwordError = "Password must be at least 6 characters"
-                    }
-                    else{
-                        passwordError = "Passwords do not match"
-                    }
-                },
-                modifier = Modifier.fillMaxWidth().height(50.dp),
-                enabled = name.isNotBlank() && email.isNotBlank() && password.isNotBlank() && confirmPassword.isNotBlank()
+            Column(
+                modifier = Modifier.fillMaxSize().padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ){
-                Text("Sign Up", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(vertical = 8.dp))
-            }
+                Text("Create Account", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(vertical = 32.dp))
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("Name") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Text),
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text("Email") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Email),
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    label = { Text("Password") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next, keyboardType = KeyboardType.Password),
+                    visualTransformation = PasswordVisualTransformation(),
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = confirmPassword,
+                    onValueChange = { confirmPassword = it },
+                    label = { Text("Confirm Password") },
+                    modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done, keyboardType = KeyboardType.Password),
+                    singleLine = true,
+                    visualTransformation = PasswordVisualTransformation(),
+                    isError = passwordError !== null,
+                    supportingText = {
+                        if (passwordError != null) {
+                            Text(passwordError!!, color = MaterialTheme.colorScheme.error)
+                        }
 
-            Spacer(modifier = Modifier.height(16.dp))
+                    }
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(
+                    onClick = {
+                        if(password == confirmPassword){
+                            onSignUpSuccess()
+                        }
+                        else if(password.length < 6){
+                            passwordError = "Password must be at least 6 characters"
+                        }
+                        else{
+                            passwordError = "Passwords do not match"
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth().height(50.dp),
+                    enabled = name.isNotBlank() && email.isNotBlank() && password.isNotBlank() && confirmPassword.isNotBlank()
+                ){
+                    Text("Sign Up", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(vertical = 8.dp))
+                }
 
-            TextButton(onClick = onNavigateToLogin) {
-                Text("Already have an account? Login", style = MaterialTheme.typography.bodyMedium)
+                Spacer(modifier = Modifier.height(16.dp))
+
+                TextButton(onClick = onNavigateToLogin) {
+                    Text("Already have an account? Login", style = MaterialTheme.typography.bodyMedium)
+                }
             }
         }
     }
